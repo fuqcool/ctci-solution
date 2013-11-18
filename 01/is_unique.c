@@ -1,3 +1,8 @@
+/**
+ * GIVEN: a string
+ * RETURNS: whether the given string has unique characters
+ */
+
 #include <stdio.h>
 
 #define TRUE 1

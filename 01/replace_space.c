@@ -1,3 +1,8 @@
+/**
+ * GIVEN: a string
+ * RETURNS: replace the spaces with '%20'
+ */
+
 #include <stdio.h>
 
 char* replace(char* s) {
