@@ -1,3 +1,7 @@
+/**
+ * GIVEN: a string
+ * RETURNS: whether the given string has unique characters
+ */
 function isUnique(s) {
   var SET_SIZE = 255;
   var set = new Array(SET_SIZE);
