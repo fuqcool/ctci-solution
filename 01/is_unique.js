@@ -1,6 +1,10 @@
 /**
  * GIVEN: a string
  * RETURNS: whether the given string has unique characters
+ * EXAMPLES:
+ * (is_unique 'a') => true
+ * (is_unique 'qwerty') => true
+ * (is_unique 'fuqcool') => false
  */
 function isUnique(s) {
   var SET_SIZE = 255;
