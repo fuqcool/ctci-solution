@@ -11,14 +11,8 @@ function isPermutation(s1, s2) {
   var i;
 
   for (i = 0; i < 255; i++) set[i] = 0;
-
-  for (i = 0; i < s1.length; i++) {
-    set[s1.charCodeAt(i)]++;
-  }
-
-  for (i = 0; i < s2.length; i++) {
-    set[s2.charCodeAt(i)]--;
-  }
+  for (i = 0; i < s1.length; i++) set[s1.charCodeAt(i)]++;
+  for (i = 0; i < s2.length; i++) set[s2.charCodeAt(i)]--;
 
   for (i = 0; i < 255; i++) {
     if (set[i] !== 0) {
