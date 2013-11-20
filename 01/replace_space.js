@@ -1,6 +1,9 @@
 /**
  * GIVEN: a string
  * RETURNS: replace the spaces with '%20'
+ * EXAMPLES:
+ * replaceSpace('a b') => 'a%20b'
+ * replaceSpace('abc') => 'abc'
  */
 
 function replaceSpace(s) {
