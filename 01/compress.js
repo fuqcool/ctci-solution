@@ -2,8 +2,8 @@
  * GIVEN: a string
  * RETURNS: the compressed version of the string
  * EXAMPLES:
- * (compress 'aaabbbcccee') => 'a3b3c3e2'
- * (compress 'a') => 'a1'
+ * compress('aaabbbcccee') => 'a3b3c3e2'
+ * compress('a') => 'a1'
  */
 function compress(s) {
   if (!s.length) return s;
