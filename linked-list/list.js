@@ -1,14 +1,12 @@
 var assert = require('assert');
 
 function SingleLinkedList() {
-  this.head = {
-    next: null,
-    value: null
-  };
+  this.head = this.makeNode(null);
 }
 
 SingleLinkedList.prototype.makeNode = function (value) {
   return {
+    prev: null,
     next: null,
     value: value
   };
@@ -18,6 +16,11 @@ SingleLinkedList.prototype.insert = function (value) {
   var node = this.makeNode(value);
 
   node.next = this.head.next;
+  node.prev = this.head;
+
+  if (this.head.next) {
+    this.head.next.prev = node;
+  }
   this.head.next = node;
 };
 
@@ -32,13 +35,12 @@ SingleLinkedList.prototype.search = function (value) {
 };
 
 SingleLinkedList.prototype.remove = function (value) {
-  var node = this.head;
+  var node = this.search(value);
 
-  while (node.next && node.next.value !== value) {
-    node = node.next;
+  if (node) {
+    node.next.prev = node.prev;
+    node.prev.next = node.next;
   }
-
-  node.next = node.next.next;
 };
 
 SingleLinkedList.prototype.toArray = function () {
