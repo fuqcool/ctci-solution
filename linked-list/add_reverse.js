@@ -15,7 +15,7 @@ function add(lst1, lst2) {
 
   var carry = 0;
 
-  while (p || q) {
+  while (p || q || carry) {
     var v1 = p ? p.value : 0;
     var v2 = q ? q.value : 0;
     var result = v1 + v2;
@@ -29,10 +29,6 @@ function add(lst1, lst2) {
 
     p && (p = p.next);
     q && (q = q.next);
-  }
-
-  if (carry) {
-    m.next = { next: null, value: carry };
   }
 
   return lst;
