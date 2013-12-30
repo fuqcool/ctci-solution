@@ -1,10 +1,10 @@
 var assert = require('assert');
 
-function SingleLinkedList() {
+function List() {
   this.head = this.makeNode(null);
 }
 
-SingleLinkedList.prototype.makeNode = function (value) {
+List.prototype.makeNode = function (value) {
   return {
     prev: null,
     next: null,
@@ -12,7 +12,7 @@ SingleLinkedList.prototype.makeNode = function (value) {
   };
 };
 
-SingleLinkedList.prototype.insert = function (value) {
+List.prototype.insert = function (value) {
   var node = this.makeNode(value);
 
   node.next = this.head.next;
@@ -24,7 +24,7 @@ SingleLinkedList.prototype.insert = function (value) {
   this.head.next = node;
 };
 
-SingleLinkedList.prototype.search = function (value) {
+List.prototype.search = function (value) {
   var node = this.head.next;
 
   while (node && node.value !== value) {
@@ -34,7 +34,7 @@ SingleLinkedList.prototype.search = function (value) {
   return node;
 };
 
-SingleLinkedList.prototype.remove = function (value) {
+List.prototype.remove = function (value) {
   var node = this.search(value);
 
   if (node) {
@@ -43,7 +43,7 @@ SingleLinkedList.prototype.remove = function (value) {
   }
 };
 
-SingleLinkedList.prototype.toArray = function () {
+List.prototype.toArray = function () {
   var node = this.head.next;
 
   var result = [];
@@ -56,12 +56,12 @@ SingleLinkedList.prototype.toArray = function () {
   return result;
 };
 
-module.exports = SingleLinkedList;
+module.exports = List;
 
 
 // tests
 
-var lst = new SingleLinkedList();
+var lst = new List();
 
 lst.insert(4);
 lst.insert(3);
