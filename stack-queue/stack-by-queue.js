@@ -1,42 +1,34 @@
 var assert = require('assert');
+var Queue = require('./queue.js');
 
 function Stack(size) {
-  this.size = (size == null) ? 100 : size;
-  this.top = -1;
-  this.stack = [];
+  this.q1 = new Queue();
+  this.q2 = new Queue();
 }
 
 Stack.prototype.push = function (value) {
-  if (this.top + 1 >= this.size) {
-    return;
+  this.q2.enque(value);
+
+  while (!this.q1.empty()) {
+    this.q2.enque(this.q1.deque());
   }
-  this.stack[++this.top] = value;
+
+  var tmp = this.q2;
+  this.q2 = this.q1;
+  this.q1 = tmp;
 };
 
 Stack.prototype.pop = function () {
-  if (this.top < 0) {
-    return null;
-  }
-
-  return this.stack[this.top--];
+  return this.q1.deque();
 };
 
 Stack.prototype.empty = function () {
-  return this.top < 0;
+  return this.q1.empty();
 };
 
 Stack.prototype.toArray = function () {
-  var top = this.top;
-  var result = [];
-
-  while (top >= 0) {
-    result.push(this.stack[top--]);
-  }
-
-  return result;
+  return this.q1.toArray();
 };
-
-module.exports = Stack;
 
 // tests
 

@@ -37,6 +37,10 @@ Queue.prototype.deque = function () {
   return this.queue[this.head];
 };
 
+Queue.prototype.empty = function () {
+  return this.head === this.tail;
+};
+
 Queue.prototype.toArray = function () {
   var i = this.head;
   var result = [];
