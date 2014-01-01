@@ -33,6 +33,8 @@ Stack.prototype.empty = function () {
   return this.top < 0;
 };
 
+Stack.prototype.isEmpty = Stack.prototype.empty;
+
 Stack.prototype.size = function () {
   return this.top + 1;
 };
