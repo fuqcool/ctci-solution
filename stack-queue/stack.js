@@ -1,13 +1,13 @@
 var assert = require('assert');
 
-function Stack(size) {
-  this.size = (size == null) ? 100 : size;
+function Stack(capacity) {
+  this.capacity = (capacity == null) ? 100 : capacity;
   this.top = -1;
   this.stack = [];
 }
 
 Stack.prototype.push = function (value) {
-  if (this.top + 1 >= this.size) {
+  if (this.top + 1 >= this.capacity) {
     return;
   }
   this.stack[++this.top] = value;
@@ -21,8 +21,20 @@ Stack.prototype.pop = function () {
   return this.stack[this.top--];
 };
 
+Stack.prototype.peek = function () {
+  if (this.empty()) {
+    return null;
+  }
+
+  return this.stack[this.top];
+};
+
 Stack.prototype.empty = function () {
   return this.top < 0;
+};
+
+Stack.prototype.size = function () {
+  return this.top + 1;
 };
 
 Stack.prototype.toArray = function () {

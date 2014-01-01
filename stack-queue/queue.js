@@ -1,7 +1,7 @@
 var assert = require('assert');
 
-function Queue(size) {
-  this.size = (size == null) ? 100 : size;
+function Queue(capacity) {
+  this.capacity = (capacity == null) ? 100 : capacity;
 
   this.head = 0;
   this.tail = 0;
@@ -9,7 +9,7 @@ function Queue(size) {
 }
 
 Queue.prototype.next = function (i) {
-  if (i + 1 >= this.size) {
+  if (i + 1 >= this.capacity) {
     return 0;
   }
 
